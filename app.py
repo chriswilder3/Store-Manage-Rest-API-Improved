@@ -15,19 +15,20 @@ def create_store():
     store_data = request.get_json() # Get the store data you want to create
     store_id  = uuid.uuid4().hex # generate unique id for the store
 
-    new_store = {**store_data, id: store_id } # unpack the storedata dictionary using
+    new_store = {**store_data, "id": store_id } # unpack the storedata dictionary using
                                             # keyword unpacker ** and also give another 
                                             # key 'id'
     stores[store_id] = new_store
     return new_store,201
 
 @app.post("/item") # We no longer create items inside store
-def create_item(name):
+def create_item():
     item_data = request.get_json()
     item_id = uuid.uuid4().hex
     if item_data['store_id'] not in stores:
         return {"message" : "Store not found"}, 404
-    new_item = {**item_data, id:item_id}
+    new_item = {**item_data, "id":item_id}
+    items[item_id] = new_item
     return new_item,201
 
 @app.get('/item')
