@@ -1,4 +1,4 @@
-# Store Manager REST API V2.O
+# Store Manager REST API v2.0
 
 This project is a RESTful API built with Flask to manage stores and items. It is an improved version of the previous one. It provides endpoints for CRUD operations on stores and items, allowing users to view, add, and retrieve specific stores and items by unique identifiers. The API uses `uuid` to generate unique IDs for stores and items, making it suitable for educational or prototyping purposes.
 
